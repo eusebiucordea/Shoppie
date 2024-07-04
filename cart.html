@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.5.3/css/ionicons.min.css" integrity="sha512-Tp5I4JzQPOf5pUj8p7bKJZxCpNbUqEJyP1Aj45CfqCvs3asQLVILk/gCJMb+7jy7w6De1Y13j7pl2Qo95qO0+A==" crossorigin="anonymous" />
+
+    
+
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/fonts/font.css">
+    
+    
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style_cart.css">
+    <title>Shoppie - Cart</title>
+</head>
+<body>
+
+    <header class="header" data-header >
+        <div class="container" style="font-size: 2em; font-family: 'Inter', sans-serif;">
+    
+            <a href="index.html" class="logo">
+                <img src="./assets/images/logo.svg" style="width: 132px; height: 27px;" alt="shoppie home">
+              </a>
+              
+    
+          <nav class="navbar" data-navbar >
+            <ul class="navbar-list" style="height: 35px;">
+    
+              <li>
+                <a href="index.html" class="navbar-link">Home</a>
+              </li>
+    
+              <li>
+                <a href="shop.html" class="navbar-link">Shop</a>
+              </li>
+    
+              <li>
+                <a href="aboutus.html" class="navbar-link">About us</a>
+              </li>
+    
+              <li>
+                <a href="#" class="navbar-link">Account</a>
+              </li>
+    
+    
+            </ul>
+    
+            <button class="cart-btn" style="font-size: 1em;">
+              <ion-icon name="bag" aria-hidden="true"></ion-icon>
+    
+              <span class="span">Cart</span>
+            </button>
+    
+            <div class="loginButton" >
+              
+              <button  style="font-size: 1em;" class="btn" type="button" id="loginButton">Sign In</button>
+            </div>
+    
+          </nav>
+    
+          <button class="nav-open-btn" aria-label="toggle menu" data-nav-toggler>
+            <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+          </button>
+    
+        </div>
+      </header>
+
+    <div class="card">
+        <div class="row">
+
+            
+            
+            <div class="col-md-8 cart" style="font-size: 1.5em;">
+                <div class="title">
+                    <div class="row">
+                        <div class="col"><h4><b><h1>Shopping Cart</h1></b></h4></div>
+                        <div class="col align-self-center text-right text-muted"><h4>3 items</h4></div>
+                    </div>
+                </div>    
+                <div class="row border-top border-bottom">
+                    <div class="row main align-items-center">
+                        <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/1GrakTl.jpg"></div>
+                        <div class="col">
+                            <div class="row text-muted">Shirt</div>
+                            <div class="row">Cotton T-shirt</div>
+                        </div>
+                        <div class="col">
+                            <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
+                        </div>
+                        <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row main align-items-center">
+                        <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/ba3tvGm.jpg"></div>
+                        <div class="col">
+                            <div class="row text-muted">Shirt</div>
+                            <div class="row">Cotton T-shirt</div>
+                        </div>
+                        <div class="col">
+                            <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
+                        </div>
+                        <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
+                    </div>
+                </div>
+                <div class="row border-top border-bottom">
+                    <div class="row main align-items-center">
+                        <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/pHQ3xT3.jpg"></div>
+                        <div class="col">
+                            <div class="row text-muted">Shirt</div>
+                            <div class="row">Cotton T-shirt</div>
+                        </div>
+                        <div class="col">
+                            <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
+                        </div>
+                        <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
+                    </div>
+                </div>
+                <div class="back-to-shop"><a href="#">&leftarrow;</a><span class="text-muted"><h4>Back to shop</h4></span></div>
+            </div>
+            <div class="col-md-4 summary">
+                <div class="title">
+                    <div><h1>Summary</h1></div>
+                </div>
+                <hr>
+                <div class="row" style="font-size: 1.5em;">
+                    <div class="col" style="padding-left:0;">ITEMS 3</div>
+                    <div class="col text-right">&euro; 132.00</div>
+                </div>
+                <form>
+                    <h4><b>SHIPPING</b></h4>
+                    <select class="box-text" ><option class="text-muted"><h4>Standard-Delivery- &euro;5.00</h4></option></select>
+                    <h4><b>PROMO CODE</b></h4>
+                    <input class="box-text" id="code" placeholder="Enter your code">
+                </form>
+                <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                    <div class="col"><h4><b>TOTAL PRICE</b></h4></div>
+                    <div class="col text-right"><h4><b>&euro; 137.00</b></h4></div>
+                </div>
+                <button style="padding: 15px 35px;" class="btn"><h3><b>CHECKOUT</b></h3></button>
+            </div>
+        </div>
+        
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="assets/js/script.js"></script>
+    
+</body>
+</html>
