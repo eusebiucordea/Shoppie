@@ -5,6 +5,7 @@ import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/9
 const firebaseConfig = {
   apiKey: "AIzaSyDUG--VRfZjTxf3qD0t4YCBqoxvasL5fhg",
   authDomain: "shoppieonlineshop.firebaseapp.com",
+  databaseURL: "https://shoppieonlineshop-default-rtdb.europe-west1.firebasedatabase.app/",
   projectId: "shoppieonlineshop",
   storageBucket: "shoppieonlineshop.appspot.com",
   messagingSenderId: "583068599076",
@@ -36,29 +37,58 @@ function registerUser(name, email, password) {
     });
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+  const registerForm = document.getElementById('registerForm');
+  if (registerForm) {
+    registerForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      registerUser(name, email, password);
+    });
+  }
 
-document.getElementById('loginButton').addEventListener('click', function() {
-  window.location.href = 'login.html';
-});
+  const loginButton = document.getElementById('loginButton');
+  if (loginButton) {
+    loginButton.addEventListener('click', function() {
+      window.location.href = 'login.html';
+    });
+  } else {
+    console.error("loginButton not found");
+  }
 
-document.getElementById('cartButton').addEventListener('click', function() {
-  window.location.href = 'cart.html';
-});
-/* Mobile navbar toggle */
+  const cartButton = document.getElementById('cartButton');
+  if (cartButton) {
+    cartButton.addEventListener('click', function() {
+      window.location.href = 'cart.html';
+    });
+  } else {
+    console.error("cartButton not found");
+  }
 
-const navbar = document.querySelector("[data-navbar]");
-const navToggler = document.querySelector("[data-nav-toggler]");
+  const navbar = document.querySelector("[data-navbar]");
+  const navToggler = document.querySelector("[data-nav-toggler]");
+  if (navToggler) {
+    navToggler.addEventListener("click", function () {
+      if (navbar) {
+        navbar.classList.toggle("active");
+      } else {
+        console.error("navbar not found");
+      }
+    });
+  } else {
+    console.error("navToggler not found");
+  }
 
-navToggler.addEventListener("click", function () {
-  navbar.classList.toggle("active");
-});
-
-/* Header active */
-
-const header = document.querySelector("[data-header]");
-
-window.addEventListener("scroll", function () {
-  header.classList[this.scrollY > 50 ? "add" : "remove"]("active");
+  const header = document.querySelector("[data-header]");
+  if (header) {
+    window.addEventListener("scroll", function () {
+      header.classList[this.scrollY > 50 ? "add" : "remove"]("active");
+    });
+  } else {
+    console.error("header not found");
+  }
 });
 
 window.addEventListener('load', function() {
