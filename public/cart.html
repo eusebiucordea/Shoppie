@@ -76,47 +76,11 @@
                 <div class="title">
                     <div class="row">
                         <div class="col"><h4><b><h1>Shopping Cart</h1></b></h4></div>
-                        <div class="col align-self-center text-right text-muted"><h4>3 items</h4></div>
+                        <div class="col align-self-center text-right text-muted"><h4 id="item-count">0 items</h4></div>
                     </div>
                 </div>    
-                <div class="row border-top border-bottom">
-                    <div class="row main align-items-center">
-                        <div class="col-2"><img class="img-fluid" src="#"></div>
-                        <div class="col">
-                            <div class="row text-muted">Shirt</div>
-                            <div class="row">Cotton T-shirt</div>
-                        </div>
-                        <div class="col">
-                            <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
-                        </div>
-                        <div class="col">RON 44.00 <span class="close">&#10005;</span></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="row main align-items-center">
-                        <div class="col-2"><img class="img-fluid" src="#"></div>
-                        <div class="col">
-                            <div class="row text-muted">Shirt</div>
-                            <div class="row">Cotton T-shirt</div>
-                        </div>
-                        <div class="col">
-                            <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
-                        </div>
-                        <div class="col">RON 44.00 <span class="close">&#10005;</span></div>
-                    </div>
-                </div>
-                <div class="row border-top border-bottom">
-                    <div class="row main align-items-center">
-                        <div class="col-2"><img class="img-fluid" src="#"></div>
-                        <div class="col">
-                            <div class="row text-muted">Shirt</div>
-                            <div class="row">Cotton T-shirt</div>
-                        </div>
-                        <div class="col">
-                            <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
-                        </div>
-                        <div class="col">RON 44.00 <span class="close">&#10005;</span></div>
-                    </div>
+                <div id="cart-items" class="row border-top border-bottom">
+                    <!-- Cart items will be dynamically loaded here -->
                 </div>
                 <div class="back-to-shop"><a href="shop.html">&leftarrow;</a><span class="text-muted"><h4>Back to shop</h4></span></div>
             </div>
@@ -126,18 +90,22 @@
                 </div>
                 <hr>
                 <div class="row" style="font-size: 1.5em;">
-                    <div class="col" style="padding-left:0;">ITEMS 3</div>
-                    <div class="col text-right">RON 132.00</div>
+                    <div class="col" style="padding-left:0;">ITEMS <span id="summary-item-count">0</span></div>
+                    <div class="col text-right">RON <span id="summary-total-price">0.00</span></div>
                 </div>
                 <form>
                     <h4><b>SHIPPING</b></h4>
-                    <select class="box-text"><option class="text-muted"><h4>Standard-Delivery- RON5.00</h4></option></select>
+                    <select class="box-text">
+                        <option class="text-muted"><h4>Standard-Delivery RON 25.00</h4></option>
+                        <option class="text-muted"><h4>Express-Delivery RON 50.00</h4></option>
+                        <option class="text-muted"><h4>Urgent-Delivery RON 75.00</h4></option>
+                    </select>
                     <h4><b>PROMO CODE</b></h4>
                     <input class="box-text" id="code" placeholder="Enter your code">
                 </form>
                 <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
                     <div class="col"><h4><b>TOTAL PRICE</b></h4></div>
-                    <div class="col text-right"><h4><b>RON 137.00</b></h4></div>
+                    <div class="col text-right"><h4><b>RON <span id="total-price">0.00</span></b></h4></div>
                 </div>
                 <button style="padding: 15px 35px;" class="btn"><h3><b>CHECKOUT</b></h3></button>
             </div>
@@ -147,6 +115,7 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script type="module" src="./assets/js/script.js"></script>
-    
+    <script type="module" src="./assets/js/addToCart.js"></script>
+    <script type="module" src="./assets/js/loadCart.js"></script>
 </body>
 </html>

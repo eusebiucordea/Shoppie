@@ -3,18 +3,19 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, on
 import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-database.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDUG--VRfZjTxf3qD0t4YCBqoxvasL5fhg",
-  authDomain: "shoppieonlineshop.firebaseapp.com",
-  databaseURL: "https://shoppieonlineshop-default-rtdb.europe-west1.firebasedatabase.app/",
-  projectId: "shoppieonlineshop",
-  storageBucket: "shoppieonlineshop.appspot.com",
-  messagingSenderId: "583068599076",
-  appId: "1:583068599076:web:93028c3f550b504f7c69b1"
+  apiKey: "AIzaSyBBTA30z56EzSGwN7JKMnmJ2qww2vtM7S0",
+  authDomain: "shoppie-3cea3.firebaseapp.com",
+  databaseURL: "https://shoppie-3cea3-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "shoppie-3cea3",
+  storageBucket: "shoppie-3cea3.appspot.com",
+  messagingSenderId: "417371063433",
+  appId: "1:417371063433:web:7c6525c13fa6a605b03258"
 };
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const database = getDatabase(app);
+
 
 //func register
 function registerUser(name, email, password) {
