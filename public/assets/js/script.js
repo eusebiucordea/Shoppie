@@ -16,16 +16,19 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const database = getDatabase(app);
 
+//func register
 function registerUser(name, email, password) {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
       console.log('User created:', user.uid);
       // save user info to the database
-      return set(ref(database, 'users/' + user.uid), {
-        username: name,
-        email: email
-      });
+      const registrationDate = new Date().toISOString();
+            return set(ref(database, 'users/' + user.uid), {
+                username: name,
+                email: email,
+                registrationDate: registrationDate
+            });
     })
     .then(() => {
       console.log('User data saved');
@@ -37,6 +40,22 @@ function registerUser(name, email, password) {
     });
 }
 
+//func login
+function loginUser(email, password) {
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // signed in 
+      const user = userCredential.user;
+      console.log('User logged in:', user.uid);
+      window.location.href = 'index.html'; // redirect index.html
+    })
+    .catch((error) => {
+      console.error('Error during login:', error);
+      alert('Login failed, password or email is wrong.');
+    });
+}
+
+//login si register buttons
 document.addEventListener('DOMContentLoaded', function () {
   const registerForm = document.getElementById('registerForm');
   if (registerForm) {
@@ -49,6 +68,68 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  const loginForm = document.getElementById('loginForm');
+  if (loginForm) {
+    loginForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      loginUser(email, password);
+    });
+  }
+
+  const authButton = document.getElementById('loginButton')
+  const greeting = document.getElementById('greeting');
+  const accountTab = document.getElementById('accountTab')
+
+//user authentification check
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      const userRef = ref(database, 'users/' + user.uid);
+      get(userRef).then((snapshot) => {
+          if (snapshot.exists()) {
+              const userData = snapshot.val();
+              greeting.textContent = `${userData.username}`;
+              document.getElementById('userName').textContent = userData.username;
+              document.getElementById('userEmail').textContent = userData.email;
+              if (userData.registrationDate) {
+                document.getElementById('registrationDate').textContent = new Date(userData.registrationDate).toLocaleDateString();
+              } else {
+                console.error('No registration date found for the user');
+              }
+          } else {
+              console.error('No user data found');
+          }
+      }).catch((error) => {
+          console.error('Error fetching user data:', error);
+      });
+
+      if (accountTab) {
+        accountTab.style.display = 'block'; // show fav tab
+      }
+
+      authButton.textContent = 'Logout';
+      authButton.onclick = function() {
+        signOut(auth).then(() => {
+          alert('You have been logged out.');
+          window.location.href = 'index.html';
+        }).catch((error) => {
+          console.error('Error during logout:', error);
+        });
+      };
+    } else {
+      greeting.textContent = '';
+      if (accountTab) {
+        accountTab.style.display = 'none'; // hide fav tab
+      }
+      authButton.textContent = 'Login';
+      authButton.onclick = function() {
+        window.location.href = 'login.html';
+      };
+    }
+  });
+
+  //sign in button index
   const loginButton = document.getElementById('loginButton');
   if (loginButton) {
     loginButton.addEventListener('click', function() {
@@ -58,6 +139,7 @@ document.addEventListener('DOMContentLoaded', function () {
     console.error("loginButton not found");
   }
 
+  //cart button index
   const cartButton = document.getElementById('cartButton');
   if (cartButton) {
     cartButton.addEventListener('click', function() {
@@ -67,6 +149,7 @@ document.addEventListener('DOMContentLoaded', function () {
     console.error("cartButton not found");
   }
 
+//nav bar
   const navbar = document.querySelector("[data-navbar]");
   const navToggler = document.querySelector("[data-nav-toggler]");
   if (navToggler) {
@@ -91,6 +174,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
+//loading screan
 window.addEventListener('load', function() {
   setTimeout(function() {
     var loadingScreen = document.getElementById('loading-screen');
