@@ -23,48 +23,7 @@
 </head>
 <body class="body-cart">
 
-    <header class="header" data-header>
-        <div class="container" style="font-size: 2em; font-family: 'Inter', sans-serif;">
     
-            <a href="index.html" class="logo">
-                <img src="./assets/images/logo.svg" style="width: 132px; height: 27px;" alt="shoppie home">
-            </a>
-    
-            <nav class="navbar" data-navbar>
-                <ul class="navbar-list" style="height: 35px;">
-                    <li>
-                        <a href="index.html" class="navbar-link">Home</a>
-                    </li>
-                    <li>
-                        <a href="shop.html" class="navbar-link">Shop</a>
-                    </li>
-                    <li>
-                        <a href="aboutus.html" class="navbar-link">About us</a>
-                    </li>
-                    <li id="accountTab">
-                        <a href="account.html" class="navbar-link">Account</a>
-                      </li>
-                      <li>
-                        <span class="navbar-link" id="greeting" style="margin-right: 20px;"></span>
-                      </li>
-                </ul>
-
-                <button class="cart-btn" style="font-size: 1em;" id="cartButton">
-                    <ion-icon name="bag" aria-hidden="true"></ion-icon>
-                    <span class="span">Cart</span>
-                </button>
-
-                <div class="loginButton">
-                    <button style="font-size: 1em;" class="btn" type="button" id="loginButton">Sign In</button>
-                </div>
-            </nav>
-    
-            <button class="nav-open-btn" aria-label="toggle menu" data-nav-toggler>
-                <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
-            </button>
-    
-        </div>
-    </header>
 
     <div id="loading-screen">
         <div class="loader"></div>
@@ -95,13 +54,14 @@
                 </div>
                 <form>
                     <h4><b>SHIPPING</b></h4>
-                    <select class="box-text">
-                        <option class="text-muted"><h4>Standard-Delivery RON 25.00</h4></option>
-                        <option class="text-muted"><h4>Express-Delivery RON 50.00</h4></option>
-                        <option class="text-muted"><h4>Urgent-Delivery RON 75.00</h4></option>
+                    <select class="box-text" id="delivery-options">
+                        <option class="text-muted" value="25"><h4>Standard-Delivery RON 25.00</h4></option>
+                        <option class="text-muted" value="50"><h4>Express-Delivery RON 50.00</h4></option>
+                        <option class="text-muted" value="75"><h4>Urgent-Delivery RON 75.00</h4></option>
                     </select>
                     <h4><b>PROMO CODE</b></h4>
-                    <input class="box-text" id="code" placeholder="Enter your code">
+                    <input class="box-text" id="promocode" placeholder="Enter your code">
+                    <button id="apply-promocode" class="btn" style="padding: 10px 15px; margin-bottom: 10px;">APPLY</button>
                 </form>
                 <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
                     <div class="col"><h4><b>TOTAL PRICE</b></h4></div>
