@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.5.3/css/ionicons.min.css" integrity="sha512-Tp5I4JzQPOf5pUj8p7bKJZxCpNbUqEJyP1Aj45CfqCvs3asQLVILk/gCJMb+7jy7w6De1Y13j7pl2Qo95qO0+A==" crossorigin="anonymous" />
+
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/fonts/font.css">
+    
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style_cart.css">
+    <title>Shoppie - Cart</title>
+</head>
+<body class="body-cart">
+
+    
+
+    <div id="loading-screen">
+        <div class="loader"></div>
+    </div>
+
+    <div class="card">
+        <div class="row">
+            <div class="col-md-8 cart" style="font-size: 1.5em;">
+                <div class="title">
+                    <div class="row">
+                        <div class="col"><h4><b><h1>Shopping Cart</h1></b></h4></div>
+                        <div class="col align-self-center text-right text-muted"><h4 id="item-count">0 items</h4></div>
+                    </div>
+                </div>    
+                <div id="cart-items" class="row border-top border-bottom">
+                    <!-- Cart items will be dynamically loaded here -->
+                </div>
+                <div class="back-to-shop"><a href="shop.html">&leftarrow;</a><span class="text-muted"><h4>Back to shop</h4></span></div>
+            </div>
+            <div class="col-md-4 summary">
+                <div class="title">
+                    <div><h1>Summary</h1></div>
+                </div>
+                <hr>
+                <div class="row" style="font-size: 1.5em;">
+                    <div class="col" style="padding-left:0;">ITEMS <span id="summary-item-count">0</span></div>
+                    <div class="col text-right">RON <span id="summary-total-price">0.00</span></div>
+                </div>
+                <form>
+                    <h4><b>SHIPPING</b></h4>
+                    <select class="box-text" id="delivery-options">
+                        <option class="text-muted" value="25"><h4>Standard-Delivery RON 25.00</h4></option>
+                        <option class="text-muted" value="50"><h4>Express-Delivery RON 50.00</h4></option>
+                        <option class="text-muted" value="75"><h4>Urgent-Delivery RON 75.00</h4></option>
+                    </select>
+                    <h4><b>PROMO CODE</b></h4>
+                    <input class="box-text" id="promocode" placeholder="Enter your code">
+                    <button id="apply-promocode" class="btn" style="padding: 10px 15px; margin-bottom: 10px;">APPLY</button>
+                </form>
+                <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                    <div class="col"><h4><b>TOTAL PRICE</b></h4></div>
+                    <div class="col text-right"><h4><b>RON <span id="total-price">0.00</span></b></h4></div>
+                </div>
+                <button style="padding: 15px 35px;" class="btn"><h3><b>CHECKOUT</b></h3></button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="./assets/js/script.js"></script>
+    <script type="module" src="./assets/js/addToCart.js"></script>
+    <script type="module" src="./assets/js/loadCart.js"></script>
+</body>
+</html>
